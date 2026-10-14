@@ -1,29 +1,20 @@
-student_records = {
-    "Alice": "Mathematics",
-    "Bob": "Physics",
-    "Charlie": "Chemistry",
-    "Duplicate_Key": "Biology"  
-}
+habit_1 = ("Reading", (1, 1, 0, 1, 1, 0, 1))
+habit_2 = ("Meditation", (1, 0, 1, 1, 1, 1, 1))
 
+# 2. Find tuple length
+print("Length of habit_1 tuple:", len(habit_1))
+print("Days recorded for habit_1:", len(habit_1[1]))
 
-student_name = "Alice"
-subject = student_records.get(student_name, "Subject Not Found")
-print(f"1. Safe Access -> {student_name}'s subject: {subject}")
+# 3. Access values using indexing and slicing
+print("Habit name:", habit_1[0])
+print("First 3 days of completion for habit_1:", habit_1[1][:3])
+print("Last day of completion for habit_1:", habit_1[1][-1])
 
-
-student_records["David"] = "History"          
-student_records["Bob"] = "Astrophysics"       
-print(f"2. Updated Records: {student_records}")
-
-
-student_records.pop("Duplicate_Key", None)    
-print(f"3. Cleaned Records: {student_records}")
-
-
-dict_length = len(student_records)
-print(f"4. Total Records: {dict_length}")
-print("5. Final Iteration:")
-for student, sub in student_records.items():
-    print(f"   - Student: {student} | Subject: {sub}")
+# 4. Explore immutability
+# Tuples are immutable; attempting to reassign an element causes a TypeError:
+try:
+    habit_1[1][0] = 0  # Tuples themselves don't support item assignment
+except TypeError as e:
+    print("\nError encountered:", e)
+    print("Reason: Tuples are immutable and cannot be changed directly after creation.")
     
-     
