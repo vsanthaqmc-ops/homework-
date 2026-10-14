@@ -1,21 +1,29 @@
-marks = [85, 92, 78, 90, 64, 88, 95, 72]
-
-num_students = len(marks)
-first_mark = marks[0]
-top_three = marks[:3]
-
-s
-total_marks = sum(marks)
-average_mark = total_marks / num_students
-smallest_mark = min(marks)
-largest_mark = max(marks)
+student_records = {
+    "Alice": "Mathematics",
+    "Bob": "Physics",
+    "Charlie": "Chemistry",
+    "Duplicate_Key": "Biology"  
+}
 
 
-print("--- Student Marks Summary ---")
-print(f"Total number of students: {num_students}")
-print(f"First student's mark: {first_mark}")
-print(f"First three marks (slicing): {top_three}")
-print(f"Total marks: {total_marks}")
-print(f"Average mark: {average_mark:.}")
-print(f"Smallest mark: {smallest_mark}")
-print(f"Largest mark: {largest_mark}")
+student_name = "Alice"
+subject = student_records.get(student_name, "Subject Not Found")
+print(f"1. Safe Access -> {student_name}'s subject: {subject}")
+
+
+student_records["David"] = "History"          
+student_records["Bob"] = "Astrophysics"       
+print(f"2. Updated Records: {student_records}")
+
+
+student_records.pop("Duplicate_Key", None)    
+print(f"3. Cleaned Records: {student_records}")
+
+
+dict_length = len(student_records)
+print(f"4. Total Records: {dict_length}")
+print("5. Final Iteration:")
+for student, sub in student_records.items():
+    print(f"   - Student: {student} | Subject: {sub}")
+    
+     
